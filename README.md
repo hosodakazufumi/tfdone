@@ -18,7 +18,7 @@ $ pip install git+https://github.com/hosodakazufumi/tfdone
 
 ## Usage
 
-* To add new classes to a model with some training data and training label:
+* To add new classes to a model with some training data and training label (see below for example):
 
 ```python
 from tfdone import done
