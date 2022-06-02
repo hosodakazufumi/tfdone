@@ -24,9 +24,9 @@ $ pip install git+https://github.com/hosodakazufumi/tfdone
 from tfdone import done
 model_added = done.add_class( model, data, label)
 ```
-> e.g., you can obtain a 1003-class model if you add 3 classes to a ImageNet 1000-class model.
->  *data.shape = (num_images, height, width, channels)*
->  *label.shape = (num_images,)*
+> e.g., you can obtain a 1003-class model if you add 3 classes to a ImageNet 1000-class model.  
+> *data.shape = (num_images, height, width, channels)*  
+> *label.shape = (num_images,)*
 
 * To refresh classes (transfer learning), just put `reconstruct=1`:
 
