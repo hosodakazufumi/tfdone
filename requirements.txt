@@ -1,0 +1,4 @@
+jupyter
+matplotlib
+numpy==1.20.3
+tensorflow-gpu==2.7.0
