@@ -71,8 +71,10 @@ model_added = done.add_class( model, images_processed, add_y)
 ```python
 # Quantile normalization
 x_new = done.quantile_norm( x, reference )
+
 # Attaching input resize layer
 model_resize = done.attach_resize(model, (height, width, channels))
+
 # Labels of ImageNet, CIFAR-10, and CIFAR-100
 (label_imnet, label_cifar10, label_cifar100) = done.load_labels()
 ```
