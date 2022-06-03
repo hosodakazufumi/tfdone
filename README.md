@@ -26,7 +26,7 @@ model_added = done.add_class( model, data, label)
 ```
 > e.g., you can obtain a 1003-class model if you add 3 classes to a ImageNet 1000-class model.  
 > *data.shape = (num_images, height, width, channels)*  
-> *label.shape = (num_images,)*
+> *label.shape = (num_images,)*  
 > *model: must have a flattened Dense layer at the top. If not, use Keras to arrange it. In most cases, this can be solved by flattening, removing layers after Dense layer, or unpacking a multi-layer complex. 
 
 
