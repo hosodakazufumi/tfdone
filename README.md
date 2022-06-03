@@ -43,7 +43,7 @@ model_new = done.add_class( model, data, label, reconstruct=1)
 
 ## Examples  (see `done_example.ipynb` file)
 
-This example shows a case of adding new three classes to a 1000-class ImageNet model of EfficientNet-B0 using 1, 2, and 3 images of the new classes 'baby', 'caterpillar', and 'sunflower', respectively (i.e., 1-shot learning for 'baby', and 2- and 3-shot learning for 'caterpillar' and 'sunflower', respectively). See `[done_example.ipynb](https://github.com/hosodakazufumi/tfdone/blob/main/done_example.ipynb)` file.
+This example shows a case of adding new three classes to a 1000-class ImageNet model of EfficientNet-B0 using 1, 2, and 3 images of the new classes 'baby', 'caterpillar', and 'sunflower', respectively (i.e., 1-shot learning for 'baby', and 2- and 3-shot learning for 'caterpillar' and 'sunflower', respectively). See [done_example.ipynb](https://github.com/hosodakazufumi/tfdone/blob/main/done_example.ipynb) file.
 > I recommend using Vision Transformer (ViT) as a backbone model for DONE, but for simplicity I here use EfficientNet, which is included in TensorFlow. When using ViT, for example, I have confirmed [vit-keras](https://github.com/faustomorales/vit-keras) works. 
 
 ```python
