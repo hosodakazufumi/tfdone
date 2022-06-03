@@ -16,7 +16,7 @@ TensorFlow implementation of DONE ([It's DONE: Direct ONE-shot learning with Heb
 ## Installation
 
 ```bash
-$ pip install git+https://github.com/hosodakazufumi/tfdone
+$ pip install tfdone
 ```
 
 
