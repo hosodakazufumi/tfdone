@@ -1,7 +1,11 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r", encoding="utf-8") as fp:
-  long_description = fp.read()
+try:
+    with open("README.md", "r", encoding="utf-8") as fp:
+        long_description = "\n" + fp.read()
+except FileNotFoundError:
+    long_description = "TensorFlow implementation of DONE (Direct ONE-shot learning with Hebbian weight imprinting)"
+
 
 setup(
   name="tfdone",
@@ -9,7 +13,7 @@ setup(
   author="Kazufumi Hosoda",
   author_email="hosodakazufumi@gmail.com",
   description="TensorFlow implementation of DONE",
-  long_description="TensorFlow implementation of DONE (Direct ONE-shot learning with Hebbian weight imprinting)",
+  long_description=long_description,
   long_description_content_type="text/markdown",
   url="https://github.com/hosodakazufumi/tfdone",
   packages=find_packages(),
