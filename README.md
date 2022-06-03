@@ -1,6 +1,10 @@
 # tfdone
 
-TensorFlow implementation of DONE ([It's DONE: Direct ONE-shot learning with Hebbian weight imprinting](https://arxiv.org/abs/2204.13361)).
+TensorFlow implementation of DONE ([It's DONE: Direct ONE-shot learning with Hebbian weight imprinting](https://arxiv.org/abs/2204.13361)). DONE is the simplest one-shot learning method that can add new classes to a pretrained DNN without optimization or the backbone-DNN modification.
+
+
+![scheme of DONE](https://raw.githubusercontent.com/hosodakazufumi/tfdone/master/fig/fig1.png)
+
 
 
 ## Requirements
