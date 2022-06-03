@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r", encoding="utf-8") as fp:
   long_description = fp.read()
 
-setuptools.setup(
+setup(
   name="tfdone",
   version="0.0.1",
   author="Kazufumi Hosoda",
