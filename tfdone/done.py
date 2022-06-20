@@ -19,13 +19,25 @@ def load_labels():
 
 
 def quantile_norm( x, ref_dist ):
-    N = x.shape[0]
-    if len(x.shape)>1:
+    # for x
+    if len(x.shape)==2:
         n_column = x.shape[1]
+        N = x.shape[0]
     else:
         n_column = 1
-        x = x.reshape([N,n_column])
-    y = np.quantile( ref_dist.flatten(), np.arange(0,1,1/N)+1/(2*N) )
+        x = x.reshape([-1,n_column])
+        N = x.shape[0]
+    # for reference distribution
+    if ref_dist.shape[0]==N:
+        if len(ref_dist.shape)==1:
+            y = np.sort(ref_dist)
+        elif len(ref_dist.shape)==2:
+            y = np.sort(ref_dist,axis=0).mean(axis=1)
+        else:
+            y = np.quantile( ref_dist.flatten(), np.arange(0,1,1/N)+1/(2*N) )
+    else:
+        y = np.quantile( ref_dist.flatten(), np.arange(0,1,1/N)+1/(2*N) )
+    # replace values
     x2 = x.copy()
     for i in range( n_column ):
         iarg = np.argsort(x[:,i])
@@ -63,7 +75,7 @@ def change_w(model, x_add, reconstruct):
     hidden_model = keras.Model(inputs=model.input, outputs=model.layers[-2].output)
 
     Nadd = x_add.shape[1]
-    w0add = quantile_norm( x_add, wori[0].flatten() )
+    w0add = quantile_norm( x_add, wori[0] )
     w1add = np.zeros(Nadd) + np.median(wori[1])
 
     wadd = [[]]*2
@@ -97,4 +109,3 @@ def attach_resize(model, data_shape):
     model_outputs = model(x)
     model = keras.Model(inputs=model_inputs, outputs=model_outputs)
     return model
-
