@@ -38,10 +38,17 @@ model_added = done.add_class( model, data, label)
 > - *model: must have a flattened Dense layer at the top. If not, use Keras to arrange it. In most cases, this can be solved by flattening, removing layers after Dense layer, or unpacking a multi-layer complex.* 
 
 
-* To refresh classes (transfer learning), just put `reconstruct=1`:
+* [Optional] To refresh classes (transfer learning), just put `reconstruct=1`:
 
 ```python
 model_new = done.add_class( model, data, label, reconstruct=1)
+```
+
+
+* [Optional] You can change activation (default `activation='softmax'`), e.g., by just adding `activation=None` to apply no activation:
+
+```python
+model_new = done.add_class( model, data, label, activation=None)
 ```
 
 
