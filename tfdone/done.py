@@ -51,25 +51,17 @@ def get_x( model, add_images_pp, add_labels ):
     Nhide = w[0].shape[0]
     Nclas = w[1].shape[0]
     hidden_model = keras.Model(inputs=model.input, outputs=model.layers[-2].output)
+    xx = hidden_model.predict(add_images_pp)
     add_id = np.sort(np.unique(add_labels))
     nadd = len(add_id)
+    x_add = np.zeros([Nhide,nadd])
     for ic in range(nadd):
-        xhide = np.zeros( Nhide )
         ids = np.where( add_labels == add_id[ic] )[0]
-        for ik in range( len(ids) ):
-            x = add_images_pp[ids[ik],:,:,:]
-            x = np.expand_dims(x, 0)
-            buf = hidden_model.predict(x).reshape(-1)
-            xhide += buf
-        xhide = xhide/len(ids)
-        if ic==0:
-            x_add = xhide.copy().reshape([-1,1])
-        else:
-            x_add = np.hstack( [ x_add, xhide.reshape([-1,1]) ] )
+        x_add[:,ic] = xx[ids,:].mean(axis=0)
     return x_add
 
 
-def change_w(model, x_add, reconstruct):
+def change_w(model, x_add, reconstruct, activation):
     wori = model.layers[-1].get_weights()
     Nclas = wori[1].shape[0]
     hidden_model = keras.Model(inputs=model.input, outputs=model.layers[-2].output)
@@ -88,7 +80,7 @@ def change_w(model, x_add, reconstruct):
         wadd[1] = np.hstack( [wori[1], w1add] )
         Nclas_new = Nclas + Nadd
 
-    top_layer = keras.layers.Dense(  Nclas_new , activation='softmax' )( hidden_model.output )
+    top_layer = keras.layers.Dense(  Nclas_new , activation=activation )( hidden_model.output )
     model_add = keras.Model( inputs=hidden_model.input, outputs=top_layer )
     model_add.layers[-1].set_weights(  wadd  )
 
@@ -96,10 +88,10 @@ def change_w(model, x_add, reconstruct):
 
 
 
-def add_class( model, add_images_pp, add_labels=0, reconstruct=0):
+def add_class( model, add_images_pp, add_labels=0, reconstruct=0, activation='softmax'):
     if len(add_labels)==0: add_labels=np.zeros(len(add_images_pp))
     x_add = get_x( model, add_images_pp, add_labels )
-    model_add = change_w( model, x_add, reconstruct )
+    model_add = change_w( model, x_add, reconstruct, activation )
     return model_add
 
 
@@ -109,3 +101,4 @@ def attach_resize(model, data_shape):
     model_outputs = model(x)
     model = keras.Model(inputs=model_inputs, outputs=model_outputs)
     return model
+
