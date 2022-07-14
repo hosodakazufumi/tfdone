@@ -6,6 +6,11 @@ TensorFlow implementation of DONE ([It's DONE: Direct ONE-shot learning with Heb
 ![scheme of DONE](https://raw.githubusercontent.com/hosodakazufumi/tfdone/master/fig/fig1.png)
 
 
+## Trial use
+
+Log in to your Google account, go to the link below, and hit `Shit + Enter` repeatedly.
+[https://colab.research.google.com/github/hosodakazufumi/tfdone/blob/main/done_example_colab.ipynb](https://colab.research.google.com/github/hosodakazufumi/tfdone/blob/main/done_example_colab.ipynb)
+
 
 ## Requirements
 
