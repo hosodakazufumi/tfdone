@@ -48,7 +48,7 @@ model_new = done.add_class( model, data, label, reconstruct=1)
 * [Optional] You can change activation (default `activation='softmax'`), e.g., by just adding `activation=None` to apply no activation:
 
 ```python
-model_new = done.add_class( model, data, label, activation=None)
+model_added = done.add_class( model, data, label, activation=None)
 ```
 
 
