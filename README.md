@@ -105,5 +105,6 @@ I would like to thank all the contributors to relevant open source software such
 ## References
 
 1) **Original weight imprinting**: Hang Qi, Matthew Brown, David G. Lowe. "Low-Shot Learning with Imprinted Weights", in CVPR, 2018.
-2)  **DONE**: Kazufumi Hosoda, Keigo Nishida, Shigeto Seno, Tomohiro Mashita, Hideki Kashioka, Izumi Ohzawa. "It's DONE: Direct ONE-shot learning with Hebbian weight imprinting", arXiv, 2204.13361.
+2)  **DONE**: Kazufumi Hosoda, Keigo Nishida, Shigeto Seno, Tomohiro Mashita, Hideki Kashioka, Izumi Ohzawa. "It's DONE: Direct ONE-shot learning with Hebbian weight imprinting", arXiv, 2204.13361. ("A single fast Hebbian-like process enabling one-shot class addition in deep neural networks without backbone modification
+", Front. Neurosci., 2024)
 
